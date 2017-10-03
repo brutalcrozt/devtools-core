@@ -6,8 +6,7 @@
   "scripts": {
     "start": "node bin/dev-server.js",
     "lint-js": "eslint src",
-    "firefox":
-      "./node_modules/.bin/start-firefox --start --location https://devtools-html.github.io/debugger-examples/",
+    "firefox": "./node_modules/.bin/start-firefox --start --location https://devtools-html.github.io/debugger-examples/",
     "chrome": "./node_modules/.bin/start-chrome",
     "copy-assets": "node bin/copy-assets",
     "copy-assets-watch": "node bin/copy-assets --watch",
@@ -53,7 +52,9 @@
   },
   "jest": {
     "rootDir": "src",
-    "testMatch": ["**/tests/**/*.js"],
+    "testMatch": [
+      "**/tests/**/*.js"
+    ],
     "testPathIgnorePatterns": [
       "/node_modules/",
       "<rootDir>/test/",
@@ -62,7 +63,9 @@
       "<rootDir>/object-inspector/tests/__mocks__/",
       "<rootDir>/object-inspector/tests/test-utils"
     ],
-    "transformIgnorePatterns": ["node_modules/(?!devtools-)"],
+    "transformIgnorePatterns": [
+      "node_modules/(?!devtools-)"
+    ],
     "moduleNameMapper": {
       "\\.css$": "<rootDir>/test/__mocks__/styleMock.js",
       "\\.svg$": "<rootDir>/test/__mocks__/svgMock.js"

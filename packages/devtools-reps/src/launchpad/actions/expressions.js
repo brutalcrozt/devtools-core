@@ -3,7 +3,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
 
 const constants = require("../constants");
-const { generateKey } = require("../utils/utils");
+const { generateKey } = require("../../shared/utils");
 
 function evaluateInput(input) {
   return async function ({dispatch, client}) {
@@ -47,6 +47,20 @@ function hideResultPacket(key) {
   };
 }
 
+function showReps(key) {
+  return {
+    key,
+    type: constants.SHOW_REPS,
+  };
+}
+
+function hideReps(key) {
+  return {
+    key,
+    type: constants.HIDE_REPS,
+  };
+}
+
 function createObjectClient(grip) {
   return function ({dispatch, client}) {
     return client.getObjectClient(grip);
@@ -66,4 +80,6 @@ module.exports = {
   hideResultPacket,
   createObjectClient,
   releaseActor,
+  showReps,
+  hideReps,
 };

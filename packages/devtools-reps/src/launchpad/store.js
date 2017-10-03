@@ -9,13 +9,13 @@ const {
 } = require("redux");
 
 const {logger} = require("redux-logger");
-const {promise} = require("./utils/redux/middleware/promise");
-const {thunk} = require("./utils/redux/middleware/thunk");
+const {promise} = require("../shared/redux/middleware/promise");
+const {thunk} = require("../shared/redux/middleware/thunk");
 const reducers = require("./reducers");
 
-function configureStore(options, client) {
+function configureStore(options) {
   return createStore(
-    combineReducers(Object.assign({client}, reducers)),
+    combineReducers(reducers),
     applyMiddleware(
       thunk(options.makeThunkArgs),
       promise,

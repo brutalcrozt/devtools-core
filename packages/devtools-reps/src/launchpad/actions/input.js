@@ -4,7 +4,7 @@
 
 const constants = require("../constants");
 const expressionsActions = require("./expressions");
-const { generateKey } = require("../utils/utils");
+const { generateKey } = require("../../shared/utils");
 
 function addInput(input) {
   return ({ dispatch }) => {

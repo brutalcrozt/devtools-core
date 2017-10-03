@@ -28,6 +28,12 @@ function update(state = initialState, action) {
 
     case constants.HIDE_RESULT_PACKET:
       return state.mergeIn([key], {showPacket: false});
+
+    case constants.SHOW_REPS:
+      return state.mergeIn([key], {showReps: true});
+
+    case constants.HIDE_REPS:
+      return state.mergeIn([key], {showReps: false});
   }
 
   return state;

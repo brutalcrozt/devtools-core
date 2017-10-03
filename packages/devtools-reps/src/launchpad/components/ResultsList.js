@@ -15,6 +15,8 @@ const ResultsList = React.createClass({
     expressions: ImPropTypes.map.isRequired,
     showResultPacket: PropTypes.func.isRequired,
     hideResultPacket: PropTypes.func.isRequired,
+    showReps: PropTypes.func.isRequired,
+    hideReps: PropTypes.func.isRequired,
     createObjectClient: PropTypes.func.isRequired,
     releaseActor: PropTypes.func.isRequired,
   },
@@ -26,6 +28,8 @@ const ResultsList = React.createClass({
       hideResultPacket,
       createObjectClient,
       releaseActor,
+      showReps,
+      hideReps,
     } = this.props;
 
     return dom.div({ className: "expressions" },
@@ -38,6 +42,8 @@ const ResultsList = React.createClass({
           expression: expression.toJS(),
           showResultPacket: () => showResultPacket(key),
           hideResultPacket: () => hideResultPacket(key),
+          showReps: () => showReps(key),
+          hideReps: () => hideReps(key),
           createObjectClient,
           releaseActor,
         })

@@ -20,15 +20,14 @@ main {
   margin-bottom: 1em;
 }
 
-.rep-input {
-  font-family: monospace;
+.rep-row header {
   background-color: var(--theme-toolbar-background-alt);
-  color: var(--theme-body-color);
   padding: 0.5rem;
 }
 
-.rep-input:before {
-  content: "➜ ";
+.rep-input {
+  font-family: monospace;
+  color: var(--theme-body-color);
 }
 
 .reps {
