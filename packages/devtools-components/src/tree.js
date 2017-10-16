@@ -81,37 +81,10 @@ const TreeNode = createFactory(createClass({
       })
       : null;
 
-    const treeIndentWidthVar = "var(--tree-indent-width)";
-    const treeBorderColorVar = "var(--tree-indent-border-color, black)";
-    const treeBorderWidthVar = "var(--tree-indent-border-width, 1px)";
-
-    const paddingInlineStart = `calc(
-      (${treeIndentWidthVar} * ${depth})
-      ${(isExpandable ? "" : "+ var(--arrow-total-width)")}
-    )`;
-
-    // This is the computed border that will mimic a border on tree nodes.
-    // This allow us to have as many "borders" as we need without adding
-    // specific elements for that purpose only.
-    // it's a gradient with "hard stops" which will give us as much plain
-    // lines as we need given the depth of the node.
-    // The gradient uses CSS custom properties so everything is customizable
-    // by consumers if needed.
-    const backgroundBorder = depth === 0
-      ? null
-      : "linear-gradient(90deg, " +
-          Array.from({length: depth}).map((_, i) => {
-            const indentWidth = `(${i} * ${treeIndentWidthVar})`;
-            const alignIndent = `(var(--arrow-width) / 2)`;
-            const start = `calc(${indentWidth} + ${alignIndent})`;
-            const end = `calc(${indentWidth} + ${alignIndent} + ${treeBorderWidthVar})`;
-
-            return `transparent ${start},
-              ${treeBorderColorVar} ${start},
-              ${treeBorderColorVar} ${end},
-              transparent ${end}`;
-          }).join(",") +
-        ")";
+    const arrowTotalWidth = 15;
+    const treeIndentWidth = 15;
+    const paddingInlineStart = (depth * treeIndentWidth) +
+      (isExpandable ? 0 : arrowTotalWidth);
 
     let ariaExpanded;
     if (this.props.isExpandable) {
@@ -127,7 +100,6 @@ const TreeNode = createFactory(createClass({
         className: "tree-node" + (focused ? " focused" : ""),
         style: {
           paddingInlineStart,
-          backgroundImage: backgroundBorder,
         },
         onClick: this.props.onClick,
         role: "treeitem",

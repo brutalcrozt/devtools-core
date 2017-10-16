@@ -5,9 +5,7 @@
 .tree {
   --arrow-width: 10px;
   --arrow-single-margin: 5px;
-  --arrow-total-width: calc(var(--arrow-width) + var(--arrow-single-margin));
   --arrow-fill-color: var(--theme-splitter-color, #9B9B9B);
-  --tree-indent-width: 1em;
   --tree-indent-border-color: #A2D1FF;
   --tree-indent-border-width: 1px;
   --tree-node-hover-background-color: #F0F9FE;
